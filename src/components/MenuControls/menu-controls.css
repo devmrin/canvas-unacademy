@@ -1,0 +1,56 @@
+.menu-controls {
+  border-radius: 7px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  opacity: 0.9;
+  pointer-events: none;
+  border: 1px solid #c5cddc5c;
+}
+
+.primary-menu {
+  top: 50px;
+  left: 10px;
+}
+
+.secondary-menu {
+  top: 0px;
+  left: 52px;
+}
+
+.menu-button  {
+  cursor: pointer;
+  margin-bottom:1px;
+  height: 42px;
+  width: 42px;
+  pointer-events: auto;
+  user-select: none;
+  border: none;
+  background: white;
+  outline: none;
+}
+
+.menu-button:nth-child(1) {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.menu-button:nth-last-child(1) {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.menu-button:hover {
+  background: #f2f3f9;
+}
+
+.selected, .selected:hover, .menu-button:active {
+  background: #4959AC;
+  color: white;
+}
+
+/* .selected:hover {
+  background: #4959AC;
+  color: white;
+} */
