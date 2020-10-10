@@ -210,25 +210,25 @@ function MenuControls({
                     ? 'menu-button selected first-btn'
                     : 'menu-button first-btn'
                 }
-                onClick={() => updateEraserWidth('sm', 2)}
+                onClick={() => updateEraserWidth('sm', 4)}
               >
-                sm
+                <EraserIcon size={15} />
               </button>
               <button
                 className={
                   eraserSize === 'md' ? 'menu-button selected' : 'menu-button'
                 }
-                onClick={() => updateEraserWidth('md', 4)}
+                onClick={() => updateEraserWidth('md', 8)}
               >
-                md
+                <EraserIcon size={20} />
               </button>
               <button
                 className={
                   eraserSize === 'lg' ? 'menu-button selected' : 'menu-button'
                 }
-                onClick={() => updateEraserWidth('lg', 6)}
+                onClick={() => updateEraserWidth('lg', 16)}
               >
-                lg
+                <EraserIcon size={25} />
               </button>
               <button
                 className={
@@ -236,9 +236,9 @@ function MenuControls({
                     ? 'menu-button selected last-btn'
                     : 'menu-button last-btn'
                 }
-                onClick={() => updateEraserWidth('x-lg', 8)}
+                onClick={() => updateEraserWidth('x-lg', 32)}
               >
-                x-lg
+                <EraserIcon size={44} />
               </button>
             </div>
           )}
