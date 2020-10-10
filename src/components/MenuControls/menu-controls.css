@@ -6,6 +6,7 @@
   opacity: 0.9;
   pointer-events: none;
   border: 1px solid #c5cddc5c;
+  border-radius: 7px;
 }
 
 .primary-menu {

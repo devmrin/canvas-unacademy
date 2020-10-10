@@ -11,6 +11,7 @@ function Canvas() {
   const [eraserSize, setEraserSize] = useState('md')
   const [isDrawing, setIsDrawing] = useState(false)
   const [isErasing, setIsErasing] = useState(false)
+  const [currentMenu, setCurrentMenu] = useState('stroke')
   const [currentEvent, setCurrentEvent] = useState('draw')
 
   useEffect(() => {
@@ -60,6 +61,7 @@ function Canvas() {
     canvasCtx.strokeStyle = 'black'
     canvasCtx.lineWidth = strokeWidth
     setCurrentEvent('draw')
+    setCurrentMenu('stroke')
   }
 
   const updateStrokeWidth = (width) => {
@@ -68,21 +70,21 @@ function Canvas() {
     canvasCtx.lineWidth = width
   }
 
-  const updateEraserWidth = (width) => {
+  const updateEraserWidth = (eraserState, width) => {
     setCurrentEvent('eraser')
     setIsErasing(true)
     setStrokeWidth(width)
-    setEraserSize(width)
+    setEraserSize(eraserState)
     canvasCtx.lineWidth = width
     canvasCtx.strokeStyle = 'white'
   }
 
-  const updateHighlighter = (color) => {
+  const updateHighlighter = (colorState, color) => {
     canvasCtx.lineWidth = 50
     canvasCtx.globalAlpha = 0.2
     canvasCtx.lineCap = 'square'
     canvasCtx.strokeStyle = color
-    setHighlightColor(color)
+    setHighlightColor(colorState)
     setCurrentEvent('highlight')
   }
 
@@ -102,6 +104,8 @@ function Canvas() {
         onMouseMove={draw}
       />
       <MenuControls
+        currentMenu={currentMenu}
+        setCurrentMenu={setCurrentMenu}
         strokeWidth={strokeWidth}
         highlightColor={highlightColor}
         eraserSize={eraserSize}

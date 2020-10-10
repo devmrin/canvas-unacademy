@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import './menu-controls.css'
 
 function MenuControls({
+  currentMenu,
+  setCurrentMenu,
   strokeWidth,
   highlightColor,
   eraserSize,
+  updateStrokeWidth,
+  updateHighlighter,
+  updateEraserWidth,
   clearCanvas,
 }) {
-  const [currentMenu, setCurrentMenu] = useState('stroke')
   const [hideSecondaryMenu, setHideSecondaryMenu] = useState(false)
 
   const toggleMenu = (menu) => {
@@ -24,9 +28,12 @@ function MenuControls({
           <button
             onClick={() => {
               toggleMenu('stroke')
+              updateStrokeWidth(4)
             }}
             className={
-              currentMenu === 'stroke' ? 'menu-button selected' : 'menu-button'
+              currentMenu === 'stroke'
+                ? 'menu-button selected first-btn'
+                : 'menu-button first-btn'
             }
           >
             Strke
@@ -35,8 +42,11 @@ function MenuControls({
             <div className="menu-controls secondary-menu">
               <button
                 className={
-                  strokeWidth === 2 ? 'menu-button selected' : 'menu-button'
+                  strokeWidth === 2
+                    ? 'menu-button selected first-btn'
+                    : 'menu-button first-btn'
                 }
+                onClick={() => updateStrokeWidth(2)}
               >
                 2
               </button>
@@ -44,6 +54,7 @@ function MenuControls({
                 className={
                   strokeWidth === 4 ? 'menu-button selected' : 'menu-button'
                 }
+                onClick={() => updateStrokeWidth(4)}
               >
                 4
               </button>
@@ -51,13 +62,17 @@ function MenuControls({
                 className={
                   strokeWidth === 6 ? 'menu-button selected' : 'menu-button'
                 }
+                onClick={() => updateStrokeWidth(6)}
               >
                 6
               </button>
               <button
                 className={
-                  strokeWidth === 8 ? 'menu-button selected' : 'menu-button'
+                  strokeWidth === 8
+                    ? 'menu-button selected last-btn'
+                    : 'menu-button last-btn'
                 }
+                onClick={() => updateStrokeWidth(8)}
               >
                 8
               </button>
@@ -68,6 +83,7 @@ function MenuControls({
           <button
             onClick={() => {
               toggleMenu('highlight')
+              updateHighlighter('red', 'rgba(248,144,185,0.1)')
             }}
             className={
               currentMenu === 'highlight'
@@ -82,8 +98,11 @@ function MenuControls({
               <button
                 className={
                   highlightColor === 'red'
-                    ? 'menu-button selected'
-                    : 'menu-button'
+                    ? 'menu-button selected first-btn'
+                    : 'menu-button first-btn'
+                }
+                onClick={() =>
+                  updateHighlighter('red', 'rgba(248,144,185,0.1)')
                 }
               >
                 Red
@@ -94,6 +113,9 @@ function MenuControls({
                     ? 'menu-button selected'
                     : 'menu-button'
                 }
+                onClick={() =>
+                  updateHighlighter('green', 'rgba(144,248,185,0.1)')
+                }
               >
                 Green
               </button>
@@ -103,17 +125,23 @@ function MenuControls({
                     ? 'menu-button selected'
                     : 'menu-button'
                 }
+                onClick={() =>
+                  updateHighlighter('blue', 'rgba(144,185,248,0.1)')
+                }
               >
                 Blue
               </button>
               <button
                 className={
                   highlightColor === 'yellow'
-                    ? 'menu-button selected'
-                    : 'menu-button'
+                    ? 'menu-button selected last-btn'
+                    : 'menu-button last-btn'
+                }
+                onClick={() =>
+                  updateHighlighter('yellow', 'rgba(248,248,12,0.1)')
                 }
               >
-                Yellow
+                Yllw
               </button>
             </div>
           )}
@@ -122,6 +150,7 @@ function MenuControls({
           <button
             onClick={() => {
               toggleMenu('eraser')
+              updateEraserWidth('md', 2)
             }}
             className={
               currentMenu === 'eraser' ? 'menu-button selected' : 'menu-button'
@@ -133,8 +162,11 @@ function MenuControls({
             <div className="menu-controls secondary-menu">
               <button
                 className={
-                  eraserSize === 'sm' ? 'menu-button selected' : 'menu-button'
+                  eraserSize === 'sm'
+                    ? 'menu-button selected first-btn'
+                    : 'menu-button first-btn'
                 }
+                onClick={() => updateEraserWidth('sm', 2)}
               >
                 sm
               </button>
@@ -142,6 +174,7 @@ function MenuControls({
                 className={
                   eraserSize === 'md' ? 'menu-button selected' : 'menu-button'
                 }
+                onClick={() => updateEraserWidth('md', 4)}
               >
                 md
               </button>
@@ -149,13 +182,17 @@ function MenuControls({
                 className={
                   eraserSize === 'lg' ? 'menu-button selected' : 'menu-button'
                 }
+                onClick={() => updateEraserWidth('lg', 6)}
               >
                 lg
               </button>
               <button
                 className={
-                  eraserSize === 'x-lg' ? 'menu-button selected' : 'menu-button'
+                  eraserSize === 'x-lg'
+                    ? 'menu-button selected last-btn'
+                    : 'menu-button last-btn'
                 }
+                onClick={() => updateEraserWidth('x-lg', 8)}
               >
                 x-lg
               </button>
@@ -166,7 +203,7 @@ function MenuControls({
           onClick={() => {
             clearCanvas()
           }}
-          className="menu-button"
+          className="menu-button last-btn"
         >
           Clear
         </button>
