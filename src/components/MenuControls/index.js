@@ -5,6 +5,7 @@ import {
   EraserIcon,
   ClearIcon,
 } from '../../assets/menu-icons'
+import { CircleShape } from '../../assets/shapes'
 import './menu-controls.css'
 
 function MenuControls({
@@ -55,7 +56,7 @@ function MenuControls({
                 }
                 onClick={() => updateStrokeWidth(2)}
               >
-                2
+                <CircleShape />
               </button>
               <button
                 className={

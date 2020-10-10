@@ -6,13 +6,13 @@ export default (props) => (
     <g
       id="Page-1"
       stroke="none"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
-      fill-rule="evenodd"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      fillRule="evenodd"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
-      <g id="undo-copy" stroke="#505050" stroke-width="1.7">
+      <g id="undo-copy" stroke="#505050" strokeWidth="1.7">
         <g id="Group-7" transform="translate(13.000000, 12.000000)">
           <polyline
             id="Rectangle-18"
