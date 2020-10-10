@@ -90,6 +90,7 @@ function Canvas() {
 
   const clearCanvas = () => {
     canvasCtx.clearRect(0, 0, CANVAS_WIDTH * 2, CANVAS_HEIGHT * 2)
+    setStrokeWidth(4)
     resetStrokeStyle()
     logEvent('canvas cleared')
   }

@@ -21,6 +21,9 @@
 
 .menu-button {
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 1px;
   height: 42px;
   width: 42px;
@@ -52,7 +55,7 @@
   color: white;
 }
 
-/* .selected:hover {
-  background: #4959AC;
-  color: white;
-} */
+.selected > svg > g > g,
+.menu-button:active > svg > g > g {
+  stroke: white;
+}

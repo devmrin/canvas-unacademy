@@ -1,4 +1,10 @@
 import React, { useState } from 'react'
+import {
+  PenIcon,
+  HighlighterIcon,
+  EraserIcon,
+  ClearIcon,
+} from '../../assets/menu-icons'
 import './menu-controls.css'
 
 function MenuControls({
@@ -36,7 +42,8 @@ function MenuControls({
                 : 'menu-button first-btn'
             }
           >
-            Strke
+            <PenIcon />
+            {/* <img src={PenIcon} className="menu-icon pen-icon" alt="pen" /> */}
           </button>
           {currentMenu === 'stroke' && !hideSecondaryMenu && (
             <div className="menu-controls secondary-menu">
@@ -91,7 +98,7 @@ function MenuControls({
                 : 'menu-button'
             }
           >
-            Hgltr
+            <HighlighterIcon />
           </button>
           {currentMenu === 'highlight' && !hideSecondaryMenu && (
             <div className="menu-controls secondary-menu">
@@ -156,7 +163,7 @@ function MenuControls({
               currentMenu === 'eraser' ? 'menu-button selected' : 'menu-button'
             }
           >
-            Erser
+            <EraserIcon />
           </button>
           {currentMenu === 'eraser' && !hideSecondaryMenu && (
             <div className="menu-controls secondary-menu">
@@ -205,7 +212,7 @@ function MenuControls({
           }}
           className="menu-button last-btn"
         >
-          Clear
+          <ClearIcon />
         </button>
       </div>
     </>
