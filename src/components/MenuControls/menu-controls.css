@@ -1,5 +1,4 @@
 .menu-controls {
-  border-radius: 7px;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -19,9 +18,9 @@
   left: 52px;
 }
 
-.menu-button  {
+.menu-button {
   cursor: pointer;
-  margin-bottom:1px;
+  margin-bottom: 1px;
   height: 42px;
   width: 42px;
   pointer-events: auto;
@@ -31,12 +30,12 @@
   outline: none;
 }
 
-.menu-button:nth-child(1) {
+.first-btn {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
 }
 
-.menu-button:nth-last-child(1) {
+.last-btn {
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
 }
@@ -45,8 +44,10 @@
   background: #f2f3f9;
 }
 
-.selected, .selected:hover, .menu-button:active {
-  background: #4959AC;
+.selected,
+.selected:hover,
+.menu-button:active {
+  background: #4959ac;
   color: white;
 }
 
