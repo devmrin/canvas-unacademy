@@ -50,13 +50,29 @@ function MenuControls({
             <div className="menu-controls secondary-menu">
               <button
                 className={
-                  strokeWidth === 2
+                  strokeWidth === 1
                     ? 'menu-button selected first-btn'
                     : 'menu-button first-btn'
                 }
+                onClick={() => updateStrokeWidth(1)}
+              >
+                <CircleShape radius="5%" />
+              </button>
+              <button
+                className={
+                  strokeWidth === 2 ? 'menu-button selected' : 'menu-button'
+                }
                 onClick={() => updateStrokeWidth(2)}
               >
-                <CircleShape />
+                <CircleShape radius="10%" />
+              </button>
+              <button
+                className={
+                  strokeWidth === 3 ? 'menu-button selected' : 'menu-button'
+                }
+                onClick={() => updateStrokeWidth(3)}
+              >
+                <CircleShape radius="15%" />
               </button>
               <button
                 className={
@@ -64,7 +80,15 @@ function MenuControls({
                 }
                 onClick={() => updateStrokeWidth(4)}
               >
-                4
+                <CircleShape radius="20%" />
+              </button>
+              <button
+                className={
+                  strokeWidth === 5 ? 'menu-button selected' : 'menu-button'
+                }
+                onClick={() => updateStrokeWidth(5)}
+              >
+                <CircleShape radius="25%" />
               </button>
               <button
                 className={
@@ -72,7 +96,15 @@ function MenuControls({
                 }
                 onClick={() => updateStrokeWidth(6)}
               >
-                6
+                <CircleShape radius="30%" />
+              </button>
+              <button
+                className={
+                  strokeWidth === 7 ? 'menu-button selected' : 'menu-button'
+                }
+                onClick={() => updateStrokeWidth(7)}
+              >
+                <CircleShape radius="35%" />
               </button>
               <button
                 className={
@@ -82,7 +114,7 @@ function MenuControls({
                 }
                 onClick={() => updateStrokeWidth(8)}
               >
-                8
+                <CircleShape radius="40%" />
               </button>
             </div>
           )}
@@ -112,9 +144,10 @@ function MenuControls({
                 onClick={() =>
                   updateHighlighter('red', 'rgba(248,144,185,0.1)')
                 }
-              >
-                Red
-              </button>
+                style={{
+                  backgroundColor: 'rgba(248,144,185,0.3)',
+                }}
+              ></button>
               <button
                 className={
                   highlightColor === 'green'
@@ -124,9 +157,10 @@ function MenuControls({
                 onClick={() =>
                   updateHighlighter('green', 'rgba(144,248,185,0.1)')
                 }
-              >
-                Green
-              </button>
+                style={{
+                  backgroundColor: 'rgba(144,248,185,0.3)',
+                }}
+              ></button>
               <button
                 className={
                   highlightColor === 'blue'
@@ -136,9 +170,10 @@ function MenuControls({
                 onClick={() =>
                   updateHighlighter('blue', 'rgba(144,185,248,0.1)')
                 }
-              >
-                Blue
-              </button>
+                style={{
+                  backgroundColor: 'rgba(144,185,248,0.3)',
+                }}
+              ></button>
               <button
                 className={
                   highlightColor === 'yellow'
@@ -148,9 +183,10 @@ function MenuControls({
                 onClick={() =>
                   updateHighlighter('yellow', 'rgba(248,248,12,0.1)')
                 }
-              >
-                Yllw
-              </button>
+                style={{
+                  backgroundColor: 'rgba(248,248,12,0.3)',
+                }}
+              ></button>
             </div>
           )}
         </span>

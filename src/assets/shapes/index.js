@@ -1,3 +1,4 @@
 import CircleShape from './circle'
+import SquareShape from './square'
 
-export { CircleShape }
+export { CircleShape, SquareShape }
