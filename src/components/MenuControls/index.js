@@ -44,7 +44,6 @@ function MenuControls({
             }
           >
             <PenIcon />
-            {/* <img src={PenIcon} className="menu-icon pen-icon" alt="pen" /> */}
           </button>
           {currentMenu === 'stroke' && !hideSecondaryMenu && (
             <div className="menu-controls secondary-menu">
@@ -194,7 +193,7 @@ function MenuControls({
           <button
             onClick={() => {
               toggleMenu('eraser')
-              updateEraserWidth('md', 2)
+              updateEraserWidth('md', 8)
             }}
             className={
               currentMenu === 'eraser' ? 'menu-button selected' : 'menu-button'

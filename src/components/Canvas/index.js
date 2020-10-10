@@ -56,10 +56,10 @@ function Canvas() {
     }
   }
 
-  const resetStrokeStyle = () => {
+  const resetStrokeStyle = (width) => {
     canvasCtx.lineCap = 'round'
     canvasCtx.strokeStyle = 'black'
-    canvasCtx.lineWidth = strokeWidth
+    canvasCtx.lineWidth = width ? width : strokeWidth
     setCurrentEvent('draw')
     setCurrentMenu('stroke')
   }
@@ -89,9 +89,9 @@ function Canvas() {
   }
 
   const clearCanvas = () => {
-    canvasCtx.clearRect(0, 0, CANVAS_WIDTH * 2, CANVAS_HEIGHT * 2)
+    canvasCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
     setStrokeWidth(4)
-    resetStrokeStyle()
+    resetStrokeStyle(4)
     logEvent('canvas cleared')
   }
 
