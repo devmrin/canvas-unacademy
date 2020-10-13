@@ -26,8 +26,8 @@ The application is hosted at <https://canvas-unacademy.netlify.app/>
 - [x] Add SVG icons to menus
 - [x] Add Touch support
 - [x] Persisted Locally
+- [x] Add tooltips for primary and secondary menu
 - [ ] Add keyboard shortcuts for primary menu
-- [ ] Add tooltips for primary and secondary menu
-- [ ] Clear Whiteboard alert
+- [ ] Clear All alert
 - [ ] Time travel/ Undo functionality
       .

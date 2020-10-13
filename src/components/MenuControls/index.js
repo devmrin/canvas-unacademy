@@ -31,7 +31,7 @@ function MenuControls({
   return (
     <>
       <div className="menu-controls primary-menu">
-        <span>
+        <span title="Pen">
           <button
             onClick={() => {
               toggleMenu('stroke')
@@ -118,7 +118,7 @@ function MenuControls({
             </div>
           )}
         </span>
-        <span>
+        <span title="Highlighter">
           <button
             onClick={() => {
               toggleMenu('highlight')
@@ -189,7 +189,7 @@ function MenuControls({
             </div>
           )}
         </span>
-        <span>
+        <span title="Eraser">
           <button
             onClick={() => {
               toggleMenu('eraser')
@@ -243,6 +243,7 @@ function MenuControls({
           )}
         </span>
         <button
+          title="Clear All"
           onClick={() => {
             clearCanvas()
           }}
