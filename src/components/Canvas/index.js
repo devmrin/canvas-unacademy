@@ -16,18 +16,28 @@ function Canvas() {
 
   useEffect(() => {
     const canvas = canvasRef.current
-    canvas.width = CANVAS_WIDTH * 2
-    canvas.height = CANVAS_HEIGHT * 2
+    canvas.width = CANVAS_WIDTH
+    canvas.height = CANVAS_HEIGHT
     canvas.style.width = `${CANVAS_WIDTH}px`
     canvas.style.height = `${CANVAS_HEIGHT}px`
 
     const ctx = canvas.getContext('2d')
-    ctx.scale(2, 2)
     ctx.lineCap = 'round'
     ctx.strokeStyle = 'black'
     ctx.lineWidth = 4
     setCanvasCtx(ctx)
     logEvent('canvas initialized')
+
+    // load previously saved canvas
+    if (localStorage.getItem('main-canvas')) {
+      const dataURL = localStorage.getItem('main-canvas')
+      const img = new Image()
+      img.src = dataURL
+      img.onload = function () {
+        ctx.drawImage(img, 0, 0)
+      }
+      logEvent('canvas loaded from localStorage')
+    }
   }, [])
 
   const startDrawing = ({ nativeEvent }) => {
@@ -66,6 +76,10 @@ function Canvas() {
     logEvent(currentEvent)
     canvasCtx.closePath()
     setIsDrawing(false)
+
+    // save to localStorage
+    localStorage.setItem('main-canvas', canvasRef.current.toDataURL())
+
     // check if eraser mode is off
     if (!isErasing) {
       resetStrokeStyle()
@@ -108,6 +122,7 @@ function Canvas() {
     canvasCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
     setStrokeWidth(4)
     resetStrokeStyle(4)
+    localStorage.clear()
     logEvent('canvas cleared')
   }
 
