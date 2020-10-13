@@ -37,12 +37,28 @@ function Canvas() {
     setIsDrawing(true)
   }
 
+  const startTouchDrawing = ({ nativeEvent }) => {
+    const { clientX, clientY } = nativeEvent && nativeEvent.touches[0]
+    canvasCtx.beginPath()
+    canvasCtx.moveTo(clientX, clientY)
+    setIsDrawing(true)
+  }
+
   const draw = ({ nativeEvent }) => {
     if (!isDrawing) {
       return
     }
     const { offsetX, offsetY } = nativeEvent
     canvasCtx.lineTo(offsetX, offsetY)
+    canvasCtx.stroke()
+  }
+
+  const touchDraw = ({ nativeEvent }) => {
+    if (!isDrawing) {
+      return
+    }
+    const { clientX, clientY } = nativeEvent && nativeEvent.touches[0]
+    canvasCtx.lineTo(clientX, clientY)
     canvasCtx.stroke()
   }
 
@@ -101,8 +117,11 @@ function Canvas() {
         id="main-canvas"
         ref={canvasRef}
         onMouseDown={startDrawing}
+        onTouchStart={startTouchDrawing}
         onMouseUp={finishDrawing}
+        onTouchEnd={finishDrawing}
         onMouseMove={draw}
+        onTouchMove={touchDraw}
       />
       <MenuControls
         currentMenu={currentMenu}
